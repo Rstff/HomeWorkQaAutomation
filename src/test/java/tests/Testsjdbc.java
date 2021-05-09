@@ -22,8 +22,15 @@ public class Testsjdbc {
     public void testNoInsertRowToAnimal() {
         int countRow = 10;
         DbServise.executeUpdate("insert into animal(id) VALUES(1)");
-        DbServise.executeUpdate("insert into animal(id) VALUES(10)");
+        DbServise.executeUpdate("insert into animal(id) VALUES(2)");
+        DbServise.executeUpdate("insert into animal(id) VALUES(3)");
+        DbServise.executeUpdate("insert into animal(id) VALUES(4)");
         DbServise.executeUpdate("insert into animal(id) VALUES(5)");
+        DbServise.executeUpdate("insert into animal(id) VALUES(6)");
+        DbServise.executeUpdate("insert into animal(id) VALUES(7)");
+        DbServise.executeUpdate("insert into animal(id) VALUES(8)");
+        DbServise.executeUpdate("insert into animal(id) VALUES(9)");
+        DbServise.executeUpdate("insert into animal(id) VALUES(10)");
         int countRowFromAnimal = DbServise.executeGetCountRow("select * from animal");
         Assertions.assertEquals(countRow, countRowFromAnimal);
     }

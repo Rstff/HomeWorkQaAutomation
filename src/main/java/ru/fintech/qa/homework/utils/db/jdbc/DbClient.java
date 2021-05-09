@@ -19,6 +19,13 @@ public class DbClient {
                 e.printStackTrace();
             }
         }
+        try {
+            if (connection != null && !connection.isClosed()) {
+                return connection;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         return connection;
     }
 }

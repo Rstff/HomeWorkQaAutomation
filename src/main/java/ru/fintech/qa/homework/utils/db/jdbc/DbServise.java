@@ -15,28 +15,32 @@ public class DbServise {
             while (resultSet.next()) {
                 countRow++;
             }
-            statement.close();
-            connection.close();
         } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
             try {
                 connection.close();
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-            e.printStackTrace();
         }
         return countRow;
     }
+
     public static int executeUpdate(final String sql) {
         Connection connection = new DbClient().getConnection();
         int updateRow = 0;
         try {
             Statement statement = connection.createStatement();
             updateRow = statement.executeUpdate(sql);
-            statement.close();
-            connection.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
         }
         return updateRow;
     }
